@@ -7,6 +7,7 @@ import os
 # Imports the Google Cloud Pub/Sub library
 from google.cloud import pubsub
 
+
 def pull_from(topic):
     """Subscribe to topic and pull lines from pub/sub."""
 
