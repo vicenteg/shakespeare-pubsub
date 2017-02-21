@@ -19,12 +19,14 @@ def pull_from(topic):
         subscription.create()
 
     processed = []
-    pulled = subscription.pull(max_messages=10)
+    pulled = subscription.pull(max_messages=10, return_immediately=False)
     for (ack_id, message) in pulled:
         processed.append(ack_id)
         print "{who}   {said}".format(**json.loads(message.data))
 
-    subscription.acknowledge(processed)
+    print "Got {} messages.".format(len(processed))
+    if len(processed):
+        subscription.acknowledge(processed)
 
 
 def main():
