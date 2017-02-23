@@ -84,21 +84,7 @@ Now run the publisher script. This script will read a play (King Lear) from Goog
 python publish_shakespeare.py
 ```
 
-On running the script, you may notice that it fails with an error message something like `StatusCode.PERMISSION_DENIED, Request had insufficient authentication scopes`. That's because you're using a service account without authentication from your compute instance. What you should do is go to the console, and generate a keyfile for your instance's service account.
-
-Navigate to [Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) and click the menu on the right hand side, then click "Create key". The key will start to download in your browser.
-
-Copy this key to your instance. One way to do this is to open the .json file in an editor, and copy/paste it to a new file in your home directory on your instance, substituting where necessary:
-
-```
-cat > ~/serviceaccount.json << EOF
-<PASTE THE KEYFILE CONTENTS AND THEN TYPE EOF ON A LINE BY ITSELF>
-EOF
-```
-
-The file `serviceaccount.json` will now be used to authenticate your service account.
-
-Re-run the script, and it should run for a while, then exit.
+It should run for a while, then exit.
 
 # Run the subscriber
 
