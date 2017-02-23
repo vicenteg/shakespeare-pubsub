@@ -22,6 +22,10 @@ We will use this instance to work with the code. Use a Google Compute Engine ins
 
 Create a n1-standard-1 instance using the **Ubuntu 16.04 LTS** image in the Cloud Platform UI.
 
+Be sure to allow all API access from the instance:
+
+![allow all](images/allow_all_api_access.png)
+
 Launch cloud shell. Run the following, substituting your instance's name as needed:
 
 ```
@@ -113,8 +117,6 @@ python publish_shakespeare.py & python subscribe_shakespeare.py
 You should see some output like:
 
 ```commandline
-python publish_shakespeare.py & python subscribe_shakespear
-e.py
 [1] 14130
 KING LEAR   [u'Woe, that too late repents,--', u'\t        O, sir, are you come?', u'Is it your will? Speak, sir.
  Prepare my horses.', u'Ingratitude, thou marble-hearted fiend,', u"More hideous when thou show'st thee in a chil
