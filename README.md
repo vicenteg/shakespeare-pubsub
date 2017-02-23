@@ -76,6 +76,8 @@ $ tree
 └── subscribe_shakespeare.py
 ```
 
+Note the play files under `plays` are not used directly in this example, they're just here in case you want to see what they look like.
+
 # Run the publisher
 
 Now run the publisher script. This script will read a play (King Lear) from Google Cloud Storage, make a half-hearted attempt to filter out non-speaking lines, and publish each line to Pub/Sub as a JSON object.
