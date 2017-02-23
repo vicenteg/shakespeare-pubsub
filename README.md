@@ -34,10 +34,21 @@ gcloud compute ssh instance-1
  
 You will probably be promted to create an ssh key - follow the prompts. A passphrase for your ssh key is not necessary for this workshop.
 
-Once logged in, update your gcloud components:
+As of this writing (Feb 2017), the latest gcloud SDK is version 145.0.0. Ubuntu ships with an OS-packaged 140.0.0, so we'll update it. We do this so that we can use the `gcloud alpha` commands for Dataflow and Pub/sub.
+Update to the latest gcloud SDK as follows ([reference](https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu)):
 
-```
-gcloud components update
+```bash
+# Create an environment variable for the correct distribution
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+
+# Add the Cloud SDK distribution URI as a package source
+echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+
+# Import the Google Cloud Platform public key
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
+# Update the package list and install the Cloud SDK
+sudo apt-get update && sudo apt-get install google-cloud-sdk
 ```
 
 Then install git and python-(pip|virtualenv):
